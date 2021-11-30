@@ -1,0 +1,12 @@
+[programs.devnet]
+tokentransfer = "Hwtb32NEhwEnQQ1LP1827cgN8oGYHy5gvM1WfcTHQSwH"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/home/rabindra/.config/solana/id.json"
+
+[scripts]
+test = "mocha -t 1000000 tests/"

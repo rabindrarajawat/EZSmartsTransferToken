@@ -1,0 +1,47 @@
+{
+  "version": "0.0.0",
+  "name": "tokentransfer",
+  "instructions": [
+    {
+      "name": "interaction",
+      "accounts": [
+        {
+          "name": "from",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "to",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "interactionFee",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 300,
+      "name": "InvalidInteractionSigner",
+      "msg": "The derived interaction signer does not match that which was given."
+    }
+  ],
+  "metadata": {
+    "address": "Hwtb32NEhwEnQQ1LP1827cgN8oGYHy5gvM1WfcTHQSwH"
+  }
+}
