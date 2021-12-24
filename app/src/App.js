@@ -47,12 +47,16 @@ function App() {
   }
 
   async function createTransfer() {    
+    
+    // This code need to use
     const connection = new Connection(network, opts.preflightCommitment);
     const provider = await getProvider();
     /* create the program interface combining the idl, program ID, and provider */
     const program = new Program(idl, programID, provider);
     const INTERACTION_FEE = 1; //200000000000000;
+    //End
 
+    //Remove this code
     const MINT_TOKENS = 400;
     const MINT_DECIMALS = 0;
 
@@ -69,13 +73,16 @@ function App() {
     );
     mint = _mint;
     god = _god;
+    // Remove
 
+    // This is conditional - if the user dosn't have the associated token account then use it.
     creatorTokenAcc =await serumCmn.createTokenAccount(
       program.provider,
       mint,
       creatorAcc.publicKey
     );
-
+    //End
+    
     console.log('*************', {
       from: god.toBase58(),
       to: creatorTokenAcc.toBase58(),
@@ -83,6 +90,7 @@ function App() {
       programId: program.programId.toBase58(),
     });
     
+    // This code need to use
     await program.rpc.interaction(new anchor.BN(INTERACTION_FEE), {
       accounts: {
         from: god,
@@ -91,6 +99,8 @@ function App() {
         tokenProgram: TOKEN_PROGRAM_ID,
       },
     });
+    //End
+    //console.log("Sig: ",sig);
 
     // try {
     //   var myMint = new web3.PublicKey('DHEHFWQcbqGGxjYAz3Sk1PgSJQMfTpURFvUVUJRMtQCY');  
